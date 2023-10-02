@@ -16,18 +16,18 @@ const TableRow = ({headings, tableRowData, viewEntry, editEntry}: Props) => {
   return (
     <tr>
       {headings.map((heading: string) => (
-        <td>{tableRowData[heading]}</td>
+        <td className={`${heading}-row`}>{tableRowData[heading]}</td>
       ))}
       {viewEntry && (
         <td>
-          <Link to={`/entries/view-single/${tableRowData.id}`}>
+          <Link to={`/entries/view-single/${tableRowData?.id}`}>
             <ArrowForwardIosIcon></ArrowForwardIosIcon>
           </Link>
         </td>
       )}
       {editEntry && (
         <td>
-          <Link to={`/entries/edit/${tableRowData.id}`}>
+          <Link to={`/entries/edit/${tableRowData?.id}`}>
             <EditIcon></EditIcon>
           </Link>
         </td>

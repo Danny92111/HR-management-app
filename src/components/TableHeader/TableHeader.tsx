@@ -10,7 +10,7 @@ const TableHeader = ({tableHeadings}: Props) => {
     <thead>
       <tr>
         {tableHeadings.map((heading) => (
-          <th>{formatHeading(heading)}</th>
+          <th className={`${heading}-header`}>{formatHeading(heading)}</th>
         ))}
       </tr>
     </thead>

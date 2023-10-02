@@ -5,7 +5,7 @@ type Props = {};
 const Header = ({}: Props) => {
   return (
     <header>
-      <h1>Main Title</h1>
+      <h1>HR Management application</h1>
       <ul>
         <li>
           <Link to="/entries/view-all">Entries</Link>

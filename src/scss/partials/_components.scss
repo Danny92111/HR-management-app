@@ -8,20 +8,22 @@ table {
     border-collapse: collapse;
     margin: $spacing-lg auto;
     font-size: $p-font-size-m;
-    min-width: 400px;
+    width: 80%;
+    table-layout: fixed;
     box-shadow: $box-shadow-3;
+    background-color: $blue;
 
     thead {
 
         tr {
-            background-color: $blue;
             color: $red;
             text-align: center;
             font-size: $p-font-size-xl;
             font-weight: $font-weight-bold;
 
             th {
-                padding: $spacing-m 0;
+                padding: $spacing-m $spacing-sm;
+                text-align: left;
             }
         }
     }
@@ -34,6 +36,10 @@ table {
                 background-color: $magnolia;
             }
 
+            &:nth-of-type(odd) {
+                background-color: #ffffff;
+            }
+
             &:last-of-type {
                 border-bottom: 2px solid $magnolia;
             }
@@ -42,6 +48,33 @@ table {
 
     td {
         padding: $spacing-sm $spacing-m;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+    }
+
+    a {
+        display: flex;
+        height: 100%;
+        padding: 10px 10px;
+        border-radius: 35%;
+        background-color: $blue;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        width: fit-content;
+
+        &:hover {
+            box-shadow: $box-shadow-1;
+            transform: translateY(-2px);
+        }
+
+        svg {
+            color: $red;
+        }
+
+    }
+
+    .id-row,
+    .id-header {
+        display: none;
     }
 }
 
@@ -84,7 +117,13 @@ form {
         transform: translateY(100%);
     }
 
+    .id-editable {
+        display: none;
+    }
+
 }
+
+// entry editable
 
 .edit-entry-section {
     width: 80%;
@@ -111,10 +150,6 @@ form {
         text-align: center;
         text-decoration: none;
         transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-        will-change: transform;
 
         &:disabled {
             pointer-events: none;
@@ -128,6 +163,48 @@ form {
         &:active {
             box-shadow: none;
             transform: translateY(0);
+        }
+    }
+}
+
+// chart
+
+.chart-container {
+    nav {
+        padding: $spacing-xxl 0;
+
+        ul {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+
+            li {
+                appearance: none;
+                background-color: $blue;
+                border: 2px solid $blue;
+                border-radius: $spacing-m;
+                box-sizing: border-box;
+                color: $red;
+                cursor: pointer;
+                display: inline-block;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                font-size: $p-font-size-m;
+                font-weight: $font-weight-bold;
+                line-height: normal;
+                margin: $spacing-xxl 0 0 0;
+                min-height: 60px;
+                width: 200px;
+                outline: none;
+                padding: $spacing-m $spacing-xl;
+                text-align: center;
+                text-decoration: none;
+                transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+
+                &:hover {
+                    box-shadow: $box-shadow-1;
+                    transform: translateY(-2px);
+                }
+            }
         }
     }
 }

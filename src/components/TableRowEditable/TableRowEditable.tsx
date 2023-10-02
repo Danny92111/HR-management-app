@@ -28,7 +28,7 @@ const TableRowEditable = ({headings, tableRowData}: Props) => {
     let newData = data.map((entry: any) => {
       return {...entry};
     });
-    newData[tableRowData.id - 1] = formData;
+    newData[tableRowData?.id - 1] = formData;
     dispatch(updateEntryAll(newData));
     updateEntry(newData);
     event.preventDefault();
@@ -38,7 +38,7 @@ const TableRowEditable = ({headings, tableRowData}: Props) => {
     <form onSubmit={handleSubmit}>
       {headings.map((heading: string) => {
         return (
-          <div>
+          <div className={`${heading}-editable`}>
             <label htmlFor={heading}>{formatHeading(heading)}</label>
             <input
               id={heading}
