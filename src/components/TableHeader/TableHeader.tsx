@@ -1,4 +1,5 @@
 import React from 'react';
+import {formatHeading} from '../../helpers/getHeadingsAndFormat';
 
 type Props = {
   tableHeadings: string[];
@@ -6,11 +7,13 @@ type Props = {
 
 const TableHeader = ({tableHeadings}: Props) => {
   return (
-    <tr>
-      {tableHeadings.map((heading) => (
-        <th>{heading}</th>
-      ))}
-    </tr>
+    <thead>
+      <tr>
+        {tableHeadings.map((heading) => (
+          <th>{formatHeading(heading)}</th>
+        ))}
+      </tr>
+    </thead>
   );
 };
 

@@ -7,6 +7,18 @@ export const getEntries = async (): Promise<any> => {
   return response;
 };
 
-export const updateEntry = async () => {
-  const fetchEntries = getEntries();
+export const updateEntry = async (payload: any) => {
+  try {
+    const response = await fetch(URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json();
+    console.log('POST SUCCESFUL');
+  } catch (error) {
+    console.log('ERROR');
+  }
 };

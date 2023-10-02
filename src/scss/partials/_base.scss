@@ -1,0 +1,83 @@
+//Color 
+$blue: #8acdea;
+$gray: #746d75;
+$red: #8c4843;
+$yellow-dark: #9e643c;
+$magnolia: #ede6f2;
+
+// Typography
+$h1-font-size: 20px;
+$h2-font-size: 18px;
+$h3-font-size: 16px;
+$h4-font-size: 14px;
+$h5-font-size: 12px;
+$h6-font-size: 10px;
+
+$p-font-size-xs: 12px;
+$p-font-size-sm: 14px;
+$p-font-size-m: 16px;
+$p-font-size-lg: 18px;
+$p-font-size-xl: 20px;
+
+// Layout
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-m: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 24px;
+$spacing-xxl: 28px;
+
+//font-weight
+$font-weight-light: 300;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// box-shadows:
+$box-shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$box-shadow-2: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+$box-shadow-3: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+// default styles for common used tags
+h1 {
+    font-size: $h1-font-size;
+}
+
+h2 {
+    font-size: $h2-font-size;
+}
+
+h3 {
+    font-size: $h3-font-size;
+}
+
+h4 {
+    font-size: $h4-font-size;
+}
+
+h5 {
+    font-size: $h5-font-size;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: $font-weight-bold;
+}
+
+p {
+    font-size: $p-font-size-m;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+    cursor: pointer;
+
+    &:hover {
+        font-weight: $font-weight-bold;
+    }
+}

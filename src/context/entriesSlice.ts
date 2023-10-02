@@ -16,7 +16,7 @@ export interface entriesAll {
 }
 
 const initialState: entriesAll = {
-  value: null,
+  value: [],
 };
 
 export const entriesSlice = createSlice({
@@ -24,14 +24,11 @@ export const entriesSlice = createSlice({
   initialState,
   reducers: {
     updateEntryAll: (state, action) => {
-      console.log(state);
-      console.log(action);
       state.value = action.payload;
     },
-    updateEntrySingle: (state, action) => {},
   },
 });
 
-export const {updateEntrySingle, updateEntryAll} = entriesSlice.actions;
+export const {updateEntryAll} = entriesSlice.actions;
 
 export default entriesSlice.reducer;

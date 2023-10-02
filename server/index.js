@@ -8,7 +8,7 @@ const dataPath = 'server/MOCK_DATA.json';
 const requestListener = (req, res) => {
     const entries = fs.readFileSync(dataPath).toString("utf-8");
     res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     if (req.url === "/entries") {
         if (req.method === "GET") {
@@ -16,23 +16,18 @@ const requestListener = (req, res) => {
             res.end(entries);
         }
         else if (req.method === "POST") {
+            let chunks = [];
             req.on('data', function (data) {
-                const newData = data.toString("utf8");
-                fs.writeFileSync(dataPath, newData); 
-            });
-            req.on('end', function () {
-                res.writeHead(200);
-            });
+                chunks.push(data);
+            }).on('end', function() {
+                let data = Buffer.concat(chunks);
+                let schema = JSON.parse(data);
+                fs.writeFileSync(dataPath, JSON.stringify(schema)); 
+            })
+            res.writeHead(200);
             res.end();
         }
-        else {
-            res.writeHead(404);
-        }
-    }
-    else {
-        res.writeHead(404);
-    }
-    
+    }  
 };
 
 const server = http.createServer(requestListener);

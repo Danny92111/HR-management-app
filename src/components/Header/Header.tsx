@@ -8,7 +8,7 @@ const Header = ({}: Props) => {
       <h1>Main Title</h1>
       <ul>
         <li>
-          <Link to="/">Entries</Link>
+          <Link to="/entries/view-all">Entries</Link>
         </li>
         <li>
           <Link to="/charts">Charts</Link>

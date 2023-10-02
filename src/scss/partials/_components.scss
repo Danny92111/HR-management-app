@@ -1,0 +1,133 @@
+@import "./base";
+
+
+// Components
+
+//table
+table {
+    border-collapse: collapse;
+    margin: $spacing-lg auto;
+    font-size: $p-font-size-m;
+    min-width: 400px;
+    box-shadow: $box-shadow-3;
+
+    thead {
+
+        tr {
+            background-color: $blue;
+            color: $red;
+            text-align: center;
+            font-size: $p-font-size-xl;
+            font-weight: $font-weight-bold;
+
+            th {
+                padding: $spacing-m 0;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $red;
+
+            &:nth-of-type(even) {
+                background-color: $magnolia;
+            }
+
+            &:last-of-type {
+                border-bottom: 2px solid $magnolia;
+            }
+        }
+    }
+
+    td {
+        padding: $spacing-sm $spacing-m;
+    }
+}
+
+// form
+
+form {
+    display: flex;
+    margin: $spacing-lg auto;
+    font-size: $p-font-size-m;
+    box-shadow: $box-shadow-3;
+    overflow: hidden;
+    position: relative;
+
+    div {
+
+        flex-grow: 1;
+    }
+
+    label {
+        background-color: $blue;
+        color: #ffffff;
+        text-align: center;
+        font-size: $p-font-size-xl;
+        font-weight: $font-weight-bold;
+        padding: $spacing-m 0;
+        display: inline-block;
+        width: 100%;
+    }
+
+    input {
+        font-size: inherit;
+        padding: $spacing-sm 0;
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        position: absolute;
+        width: 150px;
+        bottom: 0;
+        transform: translateY(100%);
+    }
+
+}
+
+.edit-entry-section {
+    width: 80%;
+    margin: 0 auto;
+
+    button {
+        appearance: none;
+        background-color: $blue;
+        border: 2px solid $blue;
+        border-radius: $spacing-m;
+        box-sizing: border-box;
+        color: $red;
+        cursor: pointer;
+        display: inline-block;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: $p-font-size-xl;
+        font-weight: $font-weight-bold;
+        line-height: normal;
+        margin: $spacing-xxl 0 0 0;
+        min-height: 60px;
+        width: 200px;
+        outline: none;
+        padding: $spacing-m $spacing-xl;
+        text-align: center;
+        text-decoration: none;
+        transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        will-change: transform;
+
+        &:disabled {
+            pointer-events: none;
+        }
+
+        &:hover {
+            box-shadow: $box-shadow-1;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+    }
+}

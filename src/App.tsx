@@ -18,7 +18,7 @@ const App = () => {
           <Route path="entries" element={<Entries />} />
           <Route path="entries/view-all" element={<ViewEntriesAll />} />
           <Route path="entries/view-single/:id" element={<ViewEntrySingle />} />
-          <Route path="entries/edit" element={<EditEntry />} />
+          <Route path="entries/edit/:id" element={<EditEntry />} />
           <Route path="/charts" element={<Charts />} />
         </Routes>
       </Layout>

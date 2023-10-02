@@ -1,0 +1,30 @@
+@import "./base";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+// body
+
+body {
+    height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+// Header
+header {
+    padding: $spacing-xl;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: $box-shadow-1;
+
+    ul {
+        display: flex;
+        gap: $spacing-xxl;
+        list-style-type: none;
+    }
+}
+
+// Section
+// Footer

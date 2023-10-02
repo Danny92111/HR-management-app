@@ -3,7 +3,7 @@ import React from 'react';
 type Props = {};
 
 const Entries = (props: Props) => {
-  return <div>Entries</div>;
+  return <section>Entries</section>;
 };
 
 export default Entries;
