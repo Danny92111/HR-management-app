@@ -6,9 +6,7 @@ import {getHeadings} from '../../helpers/getHeadingsAndFormat';
 import TableRowEditable from '../../components/TableRowEditable/TableRowEditable';
 import {updateEntryAll} from '../../context/entriesSlice';
 
-type Props = {};
-
-const EditEntry = (props: Props) => {
+const EditEntry = () => {
   const {id} = useParams();
   const data: any = useSelector<any>((state) => state?.entries?.value);
   const [headings, setHeadings] = useState<string[] | []>([]);

@@ -1,14 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import TableHeader from '../../components/TableHeader/TableHeader';
 import TableRow from '../../components/TableRow/TableRow';
 import {getEntries} from '../../helpers/apiRequests';
 import {useSelector, useDispatch} from 'react-redux';
-import {updateEntryAll} from '../../context/entriesSlice';
+import {updateEntryAll, entrySingle} from '../../context/entriesSlice';
 import {getHeadings} from '../../helpers/getHeadingsAndFormat';
 
-type Props = {};
-
-const ViewEntriesAll = (props: Props) => {
+const ViewEntriesAll = () => {
   const data: any = useSelector<any>((state) => state?.entries?.value);
   const [headings, setHeadings] = useState<string[] | []>([]);
   const dispatch = useDispatch();
@@ -26,9 +24,16 @@ const ViewEntriesAll = (props: Props) => {
       <table>
         <TableHeader tableHeadings={headings} />
         <tbody>
-          {data.map((row: any) => (
-            <TableRow headings={headings} tableRowData={row} viewEntry editEntry />
-          ))}
+          {data &&
+            data.map((row: entrySingle, index: number) => (
+              <TableRow
+                key={index}
+                headings={headings}
+                tableRowData={row}
+                viewEntry
+                editEntry
+              />
+            ))}
         </tbody>
       </table>
     </section>

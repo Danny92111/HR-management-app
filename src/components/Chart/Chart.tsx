@@ -1,11 +1,9 @@
 import {Line} from 'react-chartjs-2';
 
-type Props = {};
-
 type ChartProps = {
-  dataLabels: any;
-  dataSet: any;
-  title: any;
+  dataLabels: string[];
+  dataSet: number[];
+  title: string;
 };
 
 const ChartComponent = ({dataLabels, dataSet, title}: ChartProps) => {

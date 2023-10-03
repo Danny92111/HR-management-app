@@ -1,5 +1,4 @@
 import {createSlice} from '@reduxjs/toolkit';
-
 export interface entrySingle {
   id: number;
   first_name: string | null;
@@ -11,24 +10,16 @@ export interface entrySingle {
   years_of_experience: string | null;
 }
 
-export interface entriesAll {
-  value: entrySingle[] | null;
-}
-
-const initialState: entriesAll = {
-  value: [],
-};
+export type entriesAll = entrySingle[];
 
 export const entriesSlice = createSlice({
   name: 'entry',
-  initialState,
+  initialState: {value: []},
   reducers: {
     updateEntryAll: (state, action) => {
       state.value = action.payload;
     },
   },
 });
-
 export const {updateEntryAll} = entriesSlice.actions;
-
 export default entriesSlice.reducer;

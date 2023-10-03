@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {getEntries} from '../../helpers/apiRequests';
-import {useSelector, useDispatch} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {updateEntryAll} from '../../context/entriesSlice';
 import ChartComponent from '../../components/Chart/Chart';
 import {
@@ -29,8 +29,6 @@ ChartJS.register(
   Tooltip,
   Legend,
 );
-
-type Props = {};
 
 const chartList = [
   'Average age by industry',
@@ -80,8 +78,7 @@ const renderChart = (activeChart: any, chart: any) => {
   }
 };
 
-const Charts = (props: Props) => {
-  const data = useSelector<any>((state) => state?.entries?.value);
+const Charts = () => {
   const dispatch = useDispatch();
   const [activeChart, setActiveChart] = useState('Average age by industry');
   const [chartsData, setChartsData] = useState([]);

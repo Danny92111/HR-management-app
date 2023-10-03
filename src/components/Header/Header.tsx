@@ -1,8 +1,6 @@
 import {Link} from 'react-router-dom';
 
-type Props = {};
-
-const Header = ({}: Props) => {
+const Header = () => {
   return (
     <header>
       <h1>HR Management application</h1>

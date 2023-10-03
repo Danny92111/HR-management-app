@@ -1,31 +1,29 @@
 import React, {useState} from 'react';
-import {entrySingle} from '../../context/entriesSlice';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import EditIcon from '@mui/icons-material/Edit';
-import {Link} from 'react-router-dom';
-import {useNavigate, useParams, useLocation} from 'react-router-dom';
+import {updateEntryAll, entrySingle, entriesAll} from '../../context/entriesSlice';
 import {formatHeading} from '../../helpers/getHeadingsAndFormat';
 import {useSelector, useDispatch} from 'react-redux';
-import {updateEntryAll} from '../../context/entriesSlice';
 import {updateEntry} from '../../helpers/apiRequests';
 
 type Props = {
   headings: string[];
-  tableRowData: any;
+  tableRowData: entrySingle;
 };
 
 const TableRowEditable = ({headings, tableRowData}: Props) => {
-  const [formData, setFormData] = useState(tableRowData);
-  const data: any = useSelector<any>((state) => state?.entries?.value);
+  const [formData, setFormData] = useState<any>(tableRowData);
+  const data = useSelector((state: entriesAll) => state);
   const dispatch = useDispatch();
 
-  const handleInputChange = (event: any) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = event.target;
     setFormData((prevState: any) => ({...prevState, [name]: value}));
   };
 
-  const handleSubmit = (event: any) => {
-    let newData = data.map((entry: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    if (!data) {
+      return;
+    }
+    const newData: entriesAll = data.map((entry) => {
       return {...entry};
     });
     newData[tableRowData?.id - 1] = formData;
@@ -36,9 +34,9 @@ const TableRowEditable = ({headings, tableRowData}: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      {headings.map((heading: string) => {
+      {headings.map((heading, index) => {
         return (
-          <div className={`${heading}-editable`}>
+          <div key={index} className={`${heading}-editable`}>
             <label htmlFor={heading}>{formatHeading(heading)}</label>
             <input
               id={heading}
@@ -46,7 +44,6 @@ const TableRowEditable = ({headings, tableRowData}: Props) => {
               value={formData[heading]}
               onChange={handleInputChange}
             />
-            {/* <p>Error message</p> */}
           </div>
         );
       })}

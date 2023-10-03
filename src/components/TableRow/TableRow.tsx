@@ -1,9 +1,6 @@
-import React from 'react';
-import {entrySingle} from '../../context/entriesSlice';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import EditIcon from '@mui/icons-material/Edit';
 import {Link} from 'react-router-dom';
-import {useNavigate, useParams, useLocation} from 'react-router-dom';
 
 type Props = {
   headings: string[];
@@ -15,8 +12,10 @@ type Props = {
 const TableRow = ({headings, tableRowData, viewEntry, editEntry}: Props) => {
   return (
     <tr>
-      {headings.map((heading: string) => (
-        <td className={`${heading}-row`}>{tableRowData[heading]}</td>
+      {headings.map((heading, index) => (
+        <td key={index} className={`${heading}-row`}>
+          {tableRowData[heading]}
+        </td>
       ))}
       {viewEntry && (
         <td>

@@ -1,35 +1,38 @@
 import {formatAge} from './getAge';
+import {entriesAll, entrySingle} from '../context/entriesSlice';
 
-const getAverage = (instances: any) => {
-  const sum = instances.reduce((a: any, b: any) => a + b, 0);
+const getAverage = (instances: number[]): number => {
+  const sum = instances.reduce((a, b) => a + b, 0);
   const average = sum / instances.length || 0;
   return Math.round(average);
 };
 
-const getIndustryTypes = (data: any) => {
+const getIndustryTypes = (data: entriesAll): string[] => {
   return Array.from(new Set(data.map((row: any) => row.industry)));
 };
 
-const getExperienceTypes = (data: any) => {
+const getExperienceTypes = (data: entriesAll) => {
   return Array.from(
     new Set(
-      data.map((row: any) => (row.years_of_experience ? row.years_of_experience : 0)),
+      data.map((row: entrySingle) =>
+        row.years_of_experience ? row.years_of_experience : 0,
+      ),
     ),
   );
 };
 
-export const getAgeByIndustry = (data: any) => {
+export const getAgeByIndustry = (data) => {
   const industries = getIndustryTypes(data);
-  let obj: any = [];
-
+  const obj = [];
   industries.forEach((industry) => {
     const getAllAgesByIndustryType = data
-      .filter((dataRow: any) => dataRow.industry === industry)
-      .map((row: any) => {
+      .filter((dataRow: entrySingle) => dataRow.industry === industry)
+      .map((row: entrySingle) => {
         if (row.date_of_birth) {
           return formatAge(row.date_of_birth);
         }
       });
+    console.log(getAverage(getAllAgesByIndustryType));
     obj.push({
       industry: industry,
       average_age: getAverage(getAllAgesByIndustryType),
@@ -37,19 +40,19 @@ export const getAgeByIndustry = (data: any) => {
   });
 
   return {
-    labels: obj.map((entry: any) => entry.industry),
-    dataSets: obj.map((entry: any) => entry.average_age),
+    labels: obj.map((entry) => entry.industry),
+    dataSets: obj.map((entry) => entry.average_age),
   };
 };
 
-export const getAgeByExperience = (data: any) => {
+export const getAgeByExperience = (data) => {
   const experienceTypes = getExperienceTypes(data);
-  let obj: any = [];
+  const obj = [];
 
   experienceTypes.forEach((experience) => {
     const getAllAgesByExperienceType = data
-      .filter((dataRow: any) => dataRow.years_of_experience === experience)
-      .map((row: any) => {
+      .filter((dataRow: entrySingle) => dataRow.years_of_experience === experience)
+      .map((row: entrySingle) => {
         if (row.date_of_birth) {
           return formatAge(row.date_of_birth);
         }
@@ -61,19 +64,19 @@ export const getAgeByExperience = (data: any) => {
   });
 
   return {
-    labels: obj.map((entry: any) => entry.experience),
-    dataSets: obj.map((entry: any) => entry.average_age),
+    labels: obj.map((entry) => entry.experience),
+    dataSets: obj.map((entry) => entry.average_age),
   };
 };
 
-export const getSalaryByIndustry = (data: any) => {
+export const getSalaryByIndustry = (data) => {
   const industries = getIndustryTypes(data);
-  let obj: any = [];
+  const obj = [];
 
   industries.forEach((industry) => {
     const getAllSalariesByIndustryType = data
-      .filter((dataRow: any) => dataRow.industry === industry)
-      .map((dataRow: any) => {
+      .filter((dataRow: entrySingle) => dataRow.industry === industry)
+      .map((dataRow: entrySingle) => {
         if (dataRow.salary) {
           return dataRow.salary;
         }
@@ -85,19 +88,19 @@ export const getSalaryByIndustry = (data: any) => {
   });
 
   return {
-    labels: obj.map((entry: any) => entry.industryType),
-    dataSets: obj.map((entry: any) => entry.average_salary),
+    labels: obj.map((entry) => entry.industryType),
+    dataSets: obj.map((entry) => entry.average_salary),
   };
 };
 
-export const getSalaryByExperience = (data: any) => {
+export const getSalaryByExperience = (data) => {
   const experienceTypes = getExperienceTypes(data);
-  let obj: any = [];
+  const obj = [];
 
   experienceTypes.forEach((experience) => {
     const getAllSalariesByExperience = data
-      .filter((dataRow: any) => dataRow.years_of_experience === experience)
-      .map((dataRow: any) => dataRow.salary);
+      .filter((dataRow: entrySingle) => dataRow.years_of_experience === experience)
+      .map((dataRow: entrySingle) => dataRow.salary);
 
     obj.push({
       experience: experience,
@@ -106,7 +109,7 @@ export const getSalaryByExperience = (data: any) => {
   });
 
   return {
-    labels: obj.map((entry: any) => entry.experience),
-    dataSets: obj.map((entry: any) => entry.average_salary),
+    labels: obj.map((entry) => entry.experience),
+    dataSets: obj.map((entry) => entry.average_salary),
   };
 };

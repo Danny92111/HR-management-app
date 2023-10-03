@@ -8,6 +8,7 @@ const config = {
     semi: true,
     printWidth: 90,
     bracketSameLine: false,
+    endOfLine:"auto"
 }
 
 export default config;

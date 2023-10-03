@@ -1,11 +1,13 @@
+import {entrySingle} from '../context/entriesSlice';
+
 export const formatHeading = (heading: string) => {
-  let headingFormated = heading.replaceAll('_', ' ');
+  const headingFormated = heading.replaceAll('_', ' ');
   return headingFormated.charAt(0).toUpperCase() + headingFormated.slice(1);
 };
 
-export const getHeadings = (data: {}[]): string[] => {
-  let headingsArr: string[] = [];
-  data.forEach((entry: {}) => {
+export const getHeadings = (data: object[]): string[] => {
+  const headingsArr: string[] = [];
+  data.forEach((entry: entrySingle) => {
     Object.keys(entry).forEach((heading) => {
       if (!headingsArr.includes(heading)) {
         headingsArr.push(heading);

@@ -1,4 +1,3 @@
-import React from 'react';
 import {formatHeading} from '../../helpers/getHeadingsAndFormat';
 
 type Props = {
@@ -9,8 +8,10 @@ const TableHeader = ({tableHeadings}: Props) => {
   return (
     <thead>
       <tr>
-        {tableHeadings.map((heading) => (
-          <th className={`${heading}-header`}>{formatHeading(heading)}</th>
+        {tableHeadings.map((heading, index) => (
+          <th key={index} className={`${heading}-header`}>
+            {formatHeading(heading)}
+          </th>
         ))}
       </tr>
     </thead>

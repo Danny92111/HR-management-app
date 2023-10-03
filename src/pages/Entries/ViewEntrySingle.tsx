@@ -7,9 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {getHeadings} from '../../helpers/getHeadingsAndFormat';
 import {updateEntryAll} from '../../context/entriesSlice';
 
-type Props = {};
-
-const ViewEntrySingle = (props: Props) => {
+const ViewEntrySingle = () => {
   const {id} = useParams();
   const data: any = useSelector<any>((state) => state?.entries?.value);
   const [headings, setHeadings] = useState<string[] | []>([]);
