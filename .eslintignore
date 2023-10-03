@@ -1,2 +1,3 @@
 /server
-/src/**
+/babel.config.js
+/jest.config.cjs

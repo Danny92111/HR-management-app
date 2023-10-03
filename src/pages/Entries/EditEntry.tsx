@@ -30,7 +30,6 @@ const EditEntry = () => {
       {id && data.length != 0 && (
         <TableRowEditable headings={headings} tableRowData={data[Number(id) - 1]} />
       )}
-      <button>Submit</button>
     </section>
   );
 };
