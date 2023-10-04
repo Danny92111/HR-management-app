@@ -4,6 +4,7 @@ $gray: #746d75;
 $red: #8c4843;
 $yellow-dark: #9e643c;
 $magnolia: #ede6f2;
+$white: #ffffff;
 
 // Typography
 $h1-font-size: 20px;
@@ -19,6 +20,7 @@ $p-font-size-m: 16px;
 $p-font-size-lg: 18px;
 $p-font-size-xl: 20px;
 
+$font-family-trebuchet: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 // Layout
 $spacing-xs: 8px;
 $spacing-sm: 12px;
@@ -33,9 +35,11 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 // box-shadows:
-$box-shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-$box-shadow-2: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
-$box-shadow-3: rgb(38, 57, 77) 0px 20px 30px -10px;
+$box-shadow-on-hover: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$box-shadow-container: rgb(38, 57, 77) 0px 20px 30px -10px;
+
+// transitions
+$transition-cubic: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 
 // default styles for common used tags
 h1 {

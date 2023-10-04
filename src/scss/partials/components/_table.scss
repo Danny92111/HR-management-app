@@ -1,0 +1,85 @@
+table {
+    border-collapse: collapse;
+    margin: $spacing-lg auto;
+    font-size: $p-font-size-m;
+    width: 80%;
+    table-layout: fixed;
+    box-shadow: $box-shadow-container;
+    background-color: $blue;
+
+    thead {
+
+        tr {
+            color: $red;
+            text-align: center;
+            font-size: $p-font-size-xl;
+            font-weight: $font-weight-bold;
+
+            th {
+                padding: $spacing-m $spacing-sm;
+                text-align: center;
+                width: 120px;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $red;
+
+            &:nth-of-type(even) {
+                background-color: $magnolia;
+            }
+
+            &:nth-of-type(odd) {
+                background-color: $white;
+            }
+
+            &:last-of-type {
+                border-bottom: 2px solid $magnolia;
+            }
+        }
+    }
+
+    td {
+        padding: $spacing-sm $spacing-m;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+
+        &.row-view-entry,
+        &.row-edit-entry {
+            a {
+                margin: 0 auto;
+            }
+
+            &.inactive {
+                a {
+                    pointer-events: none;
+                    opacity: 0.3;
+                }
+
+            }
+        }
+    }
+
+    a {
+        display: flex;
+        height: 100%;
+        padding: 10px 10px;
+        border-radius: 35%;
+        background-color: $blue;
+        transition: $transition-cubic;
+        width: fit-content;
+
+        &:hover {
+            box-shadow: $box-shadow-on-hover;
+            transform: translateY(-2px);
+        }
+
+        svg {
+            color: $red;
+        }
+
+    }
+}

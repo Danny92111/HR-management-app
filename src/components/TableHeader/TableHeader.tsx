@@ -9,10 +9,12 @@ const TableHeader = ({tableHeadings}: Props) => {
     <thead>
       <tr>
         {tableHeadings.map((heading, index) => (
-          <th key={index} className={`${heading}-header`}>
+          <th scope="col" key={index} className={`${heading}-header`}>
             {formatHeading(heading)}
           </th>
         ))}
+        <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
   );

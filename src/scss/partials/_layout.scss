@@ -1,5 +1,3 @@
-@import "./base";
-
 * {
     margin: 0;
     padding: 0;
@@ -14,15 +12,43 @@ body {
 
 // Header
 header {
-    padding: $spacing-xl;
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    box-shadow: $box-shadow-1;
+    box-shadow: $box-shadow-container;
+    padding: $spacing-xl;
 
     ul {
         display: flex;
-        gap: $spacing-xxl;
         list-style-type: none;
+
+
+        li {
+            width: 150px;
+
+
+            a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                letter-spacing: 3px;
+                text-align: center;
+                height: $spacing-xxl;
+                transition: $transition-cubic;
+
+                &:hover {
+                    color: $white;
+                    background-color: $blue;
+                    opacity: 0.4;
+                }
+
+                &.active {
+                    color: $white;
+                    background-color: $blue;
+                }
+            }
+        }
     }
 }
 

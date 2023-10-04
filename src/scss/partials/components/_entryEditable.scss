@@ -1,0 +1,41 @@
+.edit-entry-section {
+    width: 80%;
+    margin: 0 auto;
+
+    button {
+        appearance: none;
+        background-color: $blue;
+        border: 2px solid $blue;
+        border-radius: $spacing-m;
+        box-sizing: border-box;
+        color: $red;
+        cursor: pointer;
+        display: inline-block;
+        font-family: $font-family-trebuchet;
+        font-size: $p-font-size-xl;
+        font-weight: $font-weight-bold;
+        line-height: normal;
+        margin: $spacing-xxl 0 0 0;
+        min-height: 60px;
+        width: 200px;
+        outline: none;
+        padding: $spacing-m $spacing-xl;
+        text-align: center;
+        text-decoration: none;
+        transition: $transition-cubic;
+
+        &:disabled {
+            pointer-events: none;
+        }
+
+        &:hover {
+            box-shadow: $box-shadow-on-hover;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: translateY(0);
+        }
+    }
+}

@@ -19,7 +19,7 @@ A react site that pulls and updates content from the mock server and renders gra
 
  
 
-In the root directory, you will find package.json which you will find information about the project. In the file we have a few commands which we can execute by opening the terminal in the root directory and running "npm *script_name*" where *script_name* represents the name of the script you want to run. Below we have some information about each script individually:
+In the root directory, you will find package.json which you will find information about the project. In the file we have a few commands which we can execute by opening the terminal in the root directory and running "npm run *script_name*" where *script_name* represents the name of the script you want to run. Below we have some information about each script individually:
 
  
 

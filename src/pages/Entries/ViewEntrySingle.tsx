@@ -32,7 +32,13 @@ const ViewEntrySingle = () => {
         <TableHeader tableHeadings={headings} />
         <tbody>
           {id && (
-            <TableRow headings={headings} tableRowData={data[Number(id) - 1]} editEntry />
+            <TableRow
+              headings={headings}
+              tableRowData={data[Number(id) - 1]}
+              viewEntry
+              editEntry
+              inactive
+            />
           )}
         </tbody>
       </table>

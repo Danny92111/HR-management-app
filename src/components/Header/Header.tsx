@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -6,10 +6,20 @@ const Header = () => {
       <h1>HR Management application</h1>
       <ul>
         <li>
-          <Link to="/entries/view-all">Entries</Link>
+          <NavLink
+            className={({isActive}) => (isActive ? 'active' : 'inactive')}
+            to="/entries/view-all"
+          >
+            Entries
+          </NavLink>
         </li>
         <li>
-          <Link to="/charts">Charts</Link>
+          <NavLink
+            className={({isActive}) => (isActive ? 'active' : 'inactive')}
+            to="/charts"
+          >
+            Charts
+          </NavLink>
         </li>
       </ul>
     </header>
